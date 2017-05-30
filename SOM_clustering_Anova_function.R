@@ -1,32 +1,3 @@
-# How to use the function
-# 
-# Set working directory (press Shift+Ctrl+H) and select folder/directory that contains files
-# Directory has to contain only files needed for analysis
-# Naming the files
-# name of the file should be e.g. Tissue_Ctrl_1.csv
-# pattern is following Group1_Group2_Group3.csv see below
-# 
-# Group 1 - e.g. different tissues
-# Group 2 - usually treatment
-# Group 3 - sample replicates
-# Group 4 - unique identifier for each file, it will be generated automatically
-# 
-# About the function:
-# xdim = is a numerical value to define one of the dimensions for SOM grid
-# ydim = is a numerical value to deifne second of the dimension for SOM grid
-# topo = choose between a hexagonal or rectangular topology SOM related, have to choose one
-# transformation = at the moment arcsinh is default and only possible
-# method = 'aov' and 'lm' are essentially the same (aov = analysis of variance and
-#           lm = Fitting Linear Models) output and fisher = fisher exact test, which as default asumes
-#           more than 2x2 table, Only one has to be selected per run!
-# plot = TRUE as default, and it will store plots of number of events in each cluster split by group 2
-# size.aj = TRUE as default, it will check if some samples contain 1.5 more events than median value of
-#           all samples taken together and unifomly select median number of random events from samples that
-#           are a bit off
-# manual = FALSE as default, naming of files will be genric Table1.csv, Table2.csv... if TRUE you will
-#          be asked to type in custom names
-
-
 som.cluster <- function(xdim = 4, ydim = 4, topo = c("rectangular", "hexagonal"), transformation = 'asin', method = c('aov', 'lm', 'fisher'), plot = TRUE, size.aj = TRUE, manual = FALSE){
   
   path.read <- getwd()
